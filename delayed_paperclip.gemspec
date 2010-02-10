@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{delayed_paperclip}
-  s.version = "0.1.0"
+  s.version = "0.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jesse Storimer"]
-  s.date = %q{2010-01-27}
+  s.date = %q{2010-02-09}
   s.description = %q{Process your Paperclip attachments in the background with delayed_job.}
   s.email = %q{jesse@jstorimer.com}
   s.extra_rdoc_files = [
@@ -23,12 +23,15 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "delayed_paperclip.gemspec",
+     "lib/delayed/jobs/delayed_paperclip_job.rb",
+     "lib/delayed/jobs/resque_paperclip_job.rb",
      "lib/delayed/paperclip.rb",
-     "lib/delayed/paperclip_job.rb",
      "lib/delayed_paperclip.rb",
+     "rails/init.rb",
      "test/database.yml",
      "test/delayed_paperclip_test.rb",
      "test/fixtures/12k.png",
+     "test/resque_paperclip_test.rb",
      "test/test_helper.rb"
   ]
   s.homepage = %q{http://github.com/jstorimer/delayed_paperclip}
@@ -38,6 +41,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Process your Paperclip attachments in the background with delayed_job.}
   s.test_files = [
     "test/delayed_paperclip_test.rb",
+     "test/resque_paperclip_test.rb",
      "test/test_helper.rb"
   ]
 
@@ -47,14 +51,11 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<paperclip>, [">= 2.3.0"])
-      s.add_runtime_dependency(%q<delayed_job>, [">= 1.8.0"])
     else
       s.add_dependency(%q<paperclip>, [">= 2.3.0"])
-      s.add_dependency(%q<delayed_job>, [">= 1.8.0"])
     end
   else
     s.add_dependency(%q<paperclip>, [">= 2.3.0"])
-    s.add_dependency(%q<delayed_job>, [">= 1.8.0"])
   end
 end
 
