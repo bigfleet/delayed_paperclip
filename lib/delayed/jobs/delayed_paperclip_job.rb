@@ -2,6 +2,6 @@ class DelayedPaperclipJob < Struct.new(:instance_klass, :instance_id, :attachmen
   def perform
     instance = instance_klass.constantize.find(instance_id)
 
-    instance.send(attachment_name).reprocess!    
+    instance.send(attachment_name).reprocess!
   end
 end

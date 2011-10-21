@@ -28,7 +28,7 @@ class ResquePaperclipTest < Test::Unit::TestCase
 
   def test_after_callback_is_functional
     @dummy_class.send(:define_method, :done_processing) { puts 'done' }
-    @dummy_class.after_image_post_process :done_processing    
+    @dummy_class.after_image_post_process :done_processing
     Dummy.any_instance.expects(:done_processing)
 
     @dummy.save!

@@ -10,7 +10,7 @@ gem 'sqlite3-ruby'
 gem 'paperclip'
 require 'paperclip'
 
-FIXTURES_DIR = File.join(File.dirname(__FILE__), "fixtures") 
+FIXTURES_DIR = File.join(File.dirname(__FILE__), "fixtures")
 config = YAML::load(IO.read(File.dirname(__FILE__) + '/database.yml'))
 ActiveRecord::Base.logger = Logger.new(File.dirname(__FILE__) + "/debug.log")
 ActiveRecord::Base.establish_connection(config['test'])
@@ -20,8 +20,8 @@ RAILS_ROOT = ROOT
 RAILS_ENV  = "test"
 
 $LOAD_PATH << File.join(ROOT, 'lib')
-$LOAD_PATH << File.join(ROOT, 'lib', 'delayed', 'paperclip') 
-$LOAD_PATH << File.join(ROOT, 'test') 
+$LOAD_PATH << File.join(ROOT, 'lib', 'delayed', 'paperclip')
+$LOAD_PATH << File.join(ROOT, 'test')
 
 require File.join(ROOT, 'lib', 'delayed_paperclip.rb')
 
@@ -71,7 +71,7 @@ def reset_dummy
   @dummy_class = reset_class "Dummy"
   @dummy_class.has_attached_file :image
   @dummy_class.process_in_background :image
-  
+
   @dummy = Dummy.new(:image => File.open("#{RAILS_ROOT}/test/fixtures/12k.png"))
 end
 
